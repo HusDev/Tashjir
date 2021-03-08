@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/Screen_Shot/favicon.ico.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4XCdiTzXd9Fn2ZPRg_kjpi_OXZQ10mr8&callback=initMap&libraries=&v=weekly"></script>
+        
+    <title>Tashjir</title>
+</head>
+<body>
+    <nav class="navbar navbar-light">
+        <div class="container">
+        <div class="container-fluid"  >
+        <a class="navbar-brand" href="#""><img src="/Screen_Shot/logo.png" alt="" width="30" height="30">Tashjir</a> 
+        </div></div>
+    </nav>   
+     
+      <section id="hero">
+        <div class="herophoto">
+            <div class="word">
+                <h1>مرحبا بك <span></span></h1>
+                <h1>كل نبته تقوم بزراعتها  <span></span></h1>
+                <h1>تجعل العالم خالي من التلوث<span></span></h1>
+                <a href="#left" type="button" class="cta">ابدا الزراعة الآن</a>
+            </div>
+        </div>
+    </section>
+
+  
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">معلومات عن النبات</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped">
+              <thred>
+                  <tr>
+                      <Th>الاسم</Th>
+                      <Th>اسم النبات</Th>
+                      <Th>عدد النباتات المزروعه</Th>
+                      <Th>التاريخ</tr>
+                  </tr>
+              </thred>
+    
+              <tbody>
+                  <tr>
+                      <td>محمد علي</td>
+                      <td>برتقال</td>
+                      <td>2</td>
+                      <td>2021/01/21</td>
+                  </tr>
+              </tbody>
+    
+          </table>
+            <img src="/Screen_Shot/planting.jpg" class="map-img2" alt="...">
+            <a href="login.html">
+            <button type="button" class="btn btn-success" id="btns1"> اعجاب</button></a>
+            <p class="like-text">2 Likes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+   
+
+    
+    <div class="from-add">
+      <div id="left">
+    <div class="container"> 
+      <div class="row">
+        <div class="col">
+          <div class="header">
+            <h2 class="animation a1">مرحبا بكم في خريطة بغداد</h2>
+          </div>
+        </div>
+
+      </div>
+      <div class="finall">
+      <div class="row justify-content-center">
+        <div class="col-sm-12">
+          <div class="A">
+            <h3>اختر الموقع عن طريق الضغط على الخريطة</h3>
+          </div>
+        </div>
+      </div>
+      </div> 
+      <!--حقول خطوط الطول والعرض-->
+      <div class="final">
+      <div class="row justify-content-center">
+        <div class=" col-sm-12 col-lg-3">
+          <div class="location">
+            <input  class="form-control" autofocus class="form-control" id="latitude" placeholder="خطوط العرض" type="number" step="any">
+          </div>
+          
+        </div>
+        
+        <div class="col-sm-12 col-lg-3">
+          <div class="location">
+            <input class="form-control"  autocomplete="off" autofocus id="longitude" placeholder="خطوط الطول" type="number" step="any">
+          </div>
+        </div>
+        
+      </div></div>
+     
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <div class="B">
+            <h3>  او </h3>
+          </div>
+        </div>
+      </div>
+     <!--البوتن التي عند الضغط عليها تظهر للمستخدم موقعه الحالي-->
+      <div class="finally">
+      <div class="row justify-content-center">
+        <div class="col-sm-3">
+          <div class="form-add">
+            <div class="form2">
+              <button class="btn1"  type="button" onclick="getLocation()">احصل على موقعك الحالي</button>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="finally">
+        <div class="row justify-content-center">
+          <div class="col-sm-12">
+            <div class="C">
+              <h3>اكمل المعلومات الخاصة بالاشجار</h3>
+            </div>
+           
+          </div>
+        </div></div>
+        
+      <!--نوع الشجره وعددها-->
+      <div class="final">
+      <div class="row justify-content-center"> 
+        <div class="col-sm-12 col-lg-3 ">
+          <div class="location">
+            <input class="form-control" id="plant" autocomplete="off" name="plant" placeholder="نوع الشجرة" type="text"required>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-3">
+          <div class="location">
+            <input class="form-control"  id="n-plants" name="plantnumber" autocomplete="off" placeholder=" عدد الاشجار"  type="number"required>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col col-lg-3">
+          <div class="location">
+            <input class="form-control" id="name" autocomplete="off" name="plant" placeholder="اسم المسخدم"type="text"required>
+          </div>
+          
+         
+        </div>
+      </div>
+      <!--رفع الصور-->
+      <div class="row justify-content-center">
+        <div class="col col-lg-4">
+          
+          <div class="upload-pic">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+           <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+           <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+           </svg>
+           <label class="text-upload" for="image">ارفع الصورة</label>
+           <input name="image" required type="file" /> </div>
+           </div>
+        </div>
+      </div>
+      <!--البتن النهائيه-->
+      <div class="finally">
+        <div class="row justify-content-center">
+          <div class="col-sm-3">
+            <div class="form-add">
+              <div class="form2">
+              <button class="btn1" id="map-marker-information" <a href="">ازرع</button>   
+             </div>         
+            </div>
+          </div>
+        </div></div>
+     </div>
+     </div>
+     </div> 
+
+        <div class="map1">
+            <div id="map"></div>
+          </div>
+        </div>
+
+  <div class="container">
+    <div  class="row">
+      <div class="col-12">
+        <div class="chart">
+          <canvas id="mychart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div  class="row">
+      <div class="col-12">
+          <div class="chart2">
+            <canvas id="mychart2"></canvas>
+          </div>
+    </div>
+  </div>
+  </div>
+  
+    
+      
+   <div class="footer">
+     <footer>
+       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+          <p class="copyright">Tashjir © 2021</p>
+      </footer>
+    </div>
+    
+    
+     
+
+
+
+
+
+ 
+  
+
+       
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+    <!--كود الجافا المرسل من ايمن-->
+      <script>
+        var newmarker = 0;
+        let markers =[];
+        let map;
+        var lt;
+        var lg;
+        var maplc = document.getElementById("maplc");
+    
+        function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+          maplc.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        }
+        
+        function showPosition(position) {
+          if (markers != null){
+          deleteMarkers()
+          }
+          lt = position.coords.latitude;
+          lg = position.coords.longitude;
+          document.getElementById("latitude").value = lt;
+          document.getElementById("longitude").value = lg;
+         addMarker({coords:{lat:lt,lng:lg}});
+         newmarker = 1;
+        }
+        function initMap(){
+            var options = {
+                zoom:11.5,
+                center:{lat:33.3152,lng:44.3661}
+            }
+            map = new google.maps.Map(document.getElementById('map'),options)
+          
+          addMarker({
+            coords:{lat:33.36988247930407,lng:44.43122739273846},
+            content:'<h5 class="text-info"">ايمن رائد</h5>' +
+            '<h6 class="text-info"">النبات: شجرة الزيتون</h6>'+
+            '<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>'
+          });
+          addMarker({
+            coords:{lat:44.441459344482425,lng:33.31443796298537},
+            content:'<h5 class="text-info"">فاطمةمحمد</h5>' +
+            '<h6 class="text-info"">النبات: شجرة الزيتون</h6>'+
+            '<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>'
+          });
+          addMarker({
+            coords:{lat:33.36988247930407,lng:44.43122739273846},
+            content:'<h5 class="text-info"">ايمن رائد</h5>' +
+            '<h6 class="text-info"">النبات: شجرة الزيتون</h6>'+
+            '<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>'
+          });
+          addMarker({
+            coords:{lat:33.36988247930407,lng:44.43122739273846},
+            content:'<h5 class="text-info"">ايمن رائد</h5>' +
+            '<h6 class="text-info"">النبات: شجرة الزيتون</h6>'+
+            '<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>'
+          });
+          addMarker({
+            coords:{lat:33.3347519983913,lng:44.238701910869986},
+            content:'<h5 class="text-info"">محمد علي</h5>'+
+            '<h6 class="text-info"">النبات: شجرة النيم</h6>'+
+            '<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">المزيد من امعلومات</button>'
+          });
+          addMarker({
+            coords:{lat:33.3347519983913,lng:44.338701910869986},
+            content:'<h5 class="text-info"">فاطمة محمد</h5>' +
+            '<h6 class="text-info"">النبات: شجرة الزيتون</h6>'+
+            '<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">More info</button>'
+          });
+          map.addListener("click", (event) => {
+            deleteMarkers()
+            document.getElementById("latitude").value = event.latLng.lat()
+            document.getElementById("longitude").value = event.latLng.lng()
+            addMarker({coords:{lat:event.latLng.lat(),lng:event.latLng.lng()}});
+            newmarker = 1
+          });
+          
+          var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: data,
+          options: options
+      });
+        }
+        function addMarker(props){
+          const marker = new google.maps.Marker({
+              position:props.coords,
+              map:map,
+              animation: google.maps.Animation.DROP,
+              icon:'/Screen_Shot/Tree icon.png'
+          });
+  
+          var infowindow = new google.maps.InfoWindow({
+            content: props.content,
+          });
+
+          marker.addListener("click", () => {
+            infowindow.open(map, marker);
+          }); 
+          markers.push(marker);
+        }
+        function setMapOnAll(map) {
+          for (let i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+          }
+        }
+        function deleteMarkers() {
+          if (newmarker == 1)
+          {
+            markers[markers.length - 1].setMap(null);
+            markers[markers.length - 1].remove;
+          }
+        }
+        
+    </script>
+    <script>
+      mrkrs = JSON.parse('{{mrkrs | safe}}')
+      for( i in mrkrs){
+      function loaddata(){
+      addMarker({
+        coords:{lat:i["lat"],lng:i["length"]},
+        content:'<h5 class="text_map">' + i["name"] +'</h5>' +
+        '<h6 class="text_map">Planted:'+i["plant"]+'</h6>'+
+        '<img src="'+i["img"]+'" class="map-img2" alt="...">'+
+        '<button type="button" class="btn btn-outline-success">LIKE</button>'
+      });
+    }
+  }
+    </script>
+    
+    
+
+
+
+    <script>
+    var mychart = document.getElementById('mychart').getContext('2d');
+    
+    Chart.defaults.global.defaultFontFamily = 'Lato',
+    Chart.defaults.global.defaultFontSize = 18,
+    Chart.defaults.global.defaultFontColor = '#777';
+    
+    let masspopchart = new Chart(mychart, {
+    type:'line',
+    data:{
+      labels:['2010','2011', '2012', '2013', '2014','2015','2016','2017','2018','2019','2020','2021'],
+      datasets:[{
+        label:'ثنائي أكسيد الكربون %',
+        data:[ 0.31,0.33,0.34,0.35,0.33,0.21,0.25,0.22,0.25,0.25,0.26,0.19],
+        backgroundColor: ['rgba(20, 220, 103, 0.5)'],
+        borderColor: ['rgba(20, 220, 103, 0.1)' ],
+        borderWidth: 1,
+        hoverBorderWidth:3.5,
+      },
+      {
+        label:'الاوكسجين %',
+        data:[ 0.12,0.14,0.13,0.16,0.12,0.3,0.24,0.32,0.32,0.35,0.36,0.41],
+        backgroundColor: ['rgba(0, 131, 207, 0.5)'],
+        borderColor: ['rgba(0, 131, 207, 0.1)' ],
+        borderWidth: 1,
+        hoverBorderWidth:3.5,
+        fill:true
+      }
+      
+    ]
+    },
+    options:{  
+      responsive:true,
+      
+            scales: {
+                yAxes: [{
+    ticks: {
+                beginAtZero: true
+    }
+    }]
+           },
+      title:{
+        display:true,
+        text:'   نسبه استهلاك ثنائي أكسيد الكربون و انتاج الاوكسجين عبر السنين في بغداد ',
+        fontSize:25
+      },
+      legend:{
+        display:true
+      }
+        
+      
+    }
+    });
+    
+    </script>
+    
+    <script>
+      var mychart2 = document.getElementById('mychart2').getContext('2d');
+      
+      Chart.defaults.global.defaultFontFamily = 'Lato',
+      Chart.defaults.global.defaultFontSize = 18,
+      Chart.defaults.global.defaultFontColor = '#777';
+      
+      let masspopchart1 = new Chart(mychart2, {
+      type:'doughnut',
+      data:{
+        labels:['النخل','اشجار الزيتون', 'اشجار البرتقال', 'اشجار العنب', 'اشجار النيم','اشجار الطماطم'],
+        datasets:[{
+          label:'اعداد النباتات في العراق',
+          data:[
+          1,
+          2,
+          3,
+          4,
+          5,
+          7	
+          ],
+           backgroundColor: [
+                'rgba(255, 159, 64, 0.9)',
+                'rgba(54, 162, 235, 0.9)',
+                'rgba(255, 206, 86, 0.9)',
+                'rgba(75, 192, 192, 0.9)',
+                'rgba(153, 102, 255, 0.9)',
+                'rgba(255, 99, 132, 0.9)'
+                
+            ],
+            borderColor: [
+                'rgba(255, 159, 64, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 99, 132, 1)'
+                
+            ],
+            borderWidth: 1,
+            hoverBorderWidth:3,
+            
+        }]
+      
+      },
+      options:{ //
+              //scales: {
+              //    yAxes: [{
+      //ticks: {
+               //           beginAtZero: false
+      //}
+      //}]
+         //     },
+        title:{
+          display:true,
+          text:'اعداد النباتات في العراق',
+          fontSize:25
+        },
+        legend:{
+          display:true
+        }
+          
+        
+      }
+      });
+      
+      </script>
+</body>
+</html>
